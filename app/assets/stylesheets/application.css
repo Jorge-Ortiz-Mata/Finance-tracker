@@ -10,6 +10,17 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+ *= require font-awesome
  *= require_tree .
  *= require_self
  */
+.mainClass{
+    padding: 20px;
+}
+.search-area{
+    padding-top: 20px;
+}
+.results-block{
+    display: inline-block;
+    width: 300px;
+}

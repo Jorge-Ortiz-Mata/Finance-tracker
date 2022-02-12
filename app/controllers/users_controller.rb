@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+
+  before_action :require_user, only: [:my_portfolio]
+
   def index
     @users = User.all
   end
@@ -15,6 +18,10 @@ class UsersController < ApplicationController
     else
       render :new, alert: "Invalid params, try again."
     end
+  end
+
+  def my_portfolio
+    @user = current_user
   end
 
   private

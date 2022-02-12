@@ -1,20 +1,23 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <%= link_to "Home", root_path, class:"nav-link" %>
+        <%= link_to "Finance app", root_path, class:"nav-link" %>
       </li>
-      <li class="nav-item">
+      <li class="nav-item <%= 'active' if request.path == users_path %> ">
         <%= link_to "Users", users_path, class:"nav-link" %>
       </li>
       <% if !logged_in? %>
-      <li class="nav-item">
+      <li class="nav-item <%= 'active' if request.path == signin_path %> ">
         <%= link_to "Sign in", signin_path, class:"nav-link" %>
       </li>
-      <li class="nav-item">
+      <li class="nav-item <%= 'active' if request.path == signup_path %> ">
         <%= link_to "Sign up", signup_path, class:"nav-link" %>
       </li>
       <% else %>
+      <li class="nav-item <%= 'active' if request.path == myportfolio_path %> ">
+        <%= link_to "My portfolio", myportfolio_path, class:"nav-link" %>
+      </li>
       <li class="nav-item">
         <%= link_to "Sign out", signout_path, class:"nav-link" %>
       </li>
@@ -23,9 +26,5 @@
       </li>
       <% end %>
     </ul>
-    <form class="navbar-nav mr-auto">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
   </div>
 </nav>

@@ -1,0 +1,32 @@
+<% if @user.stocks.present? %>
+    <div id="results">
+        <div class="row">
+            <div class="col-9">
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th scope="col">Ticker</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% @user.stocks.each do |stock| %>
+                            <tr>
+                                <th scope="row"><%= stock.ticker %></th>
+                                <td><%= stock.name %></td>
+                                <td><%= stock.last_price %></td>
+                                <td><%= button_to 'Remove', delete_stock_path(stock), method: :delete, data: {confirm: 'Are you sure?'}, class:"btn btn-danger" %></td>
+                            </tr>
+                        <% end %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+<% else %>
+    <p>
+        You don't have any stocks to track.
+    </p>
+<% end %>
