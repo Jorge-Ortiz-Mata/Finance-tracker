@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
   resources :user_stocks, only: [:destroy]
-  get 'user_stocks', to: 'user_stocks#create'
-  delete 'delete_stock', to: 'user_stocks#destroy'
-  
+  get 'user_stocks', to: 'user_stocks#create'  
+  get '/user_stocks/:id', to: 'user_stocks#destroy'
 
   root 'pages#home'
 

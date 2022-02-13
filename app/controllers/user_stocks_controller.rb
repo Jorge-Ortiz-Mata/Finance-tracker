@@ -14,7 +14,7 @@ class UserStocksController < ApplicationController
         stock = Stock.find(params[:id])
         user_stock = UserStock.where(user_id: current_user.id, stock_id: stock.id).first
         user_stock.destroy
-        redirect_to myportfolio_path, notice: "Stock: #{user_stock} was removed from the portfolio."
+        redirect_to myportfolio_path, notice: "Stock: #{user_stock.user_id}, #{user_stock.stock_id} was removed from the portfolio."
     end
 
 end
