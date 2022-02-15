@@ -1,0 +1,22 @@
+<h2>Friends' list.</h2>
+<br>
+    <div class="col-5">
+        <table class="table table-bordered">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">User ID.</th>
+                    <th scope="col">Friend</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% current_user.friends.each do |friend| %>
+                    <tr>
+                        <td><%= friend.id %></td>
+                        <td><%= friend.username %></td>
+                        <td><%= link_to "Remove friend", friendship_path(friend), method: :delete, class: "btn btn-danger" %></td>
+                    </tr>
+                <% end %>
+            </tbody>
+        </table>
+    </div>

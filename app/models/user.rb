@@ -1,6 +1,9 @@
 class User < ApplicationRecord
     has_many :user_stocks
     has_many :stocks, through: :user_stocks
+    has_many :friendships
+    has_many :friends, through: :friendships
+
     validates :username, presence: true
     validates :password, presence: true
     validates :password_confirmation, presence: true
@@ -20,5 +23,15 @@ class User < ApplicationRecord
         under_stock_limit? && !stock_already_tracked?(ticker_symbol)
     end
 
+ # ------------------------- Search friend ------------------
 
+    def self.look_friend_up(friend)
+        @people = where("username like ?", "%#{friend}%")
+        if !(@people.empty?)
+            return @people
+        else
+            return nil
+        end
+    end
+    
 end

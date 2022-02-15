@@ -1,0 +1,22 @@
+<h1>Friends list</h1>
+<br><br>
+<div>
+    <%= render 'friendships/formfriends' %>
+</div>
+<br>
+<% if @people %>
+    <%= render 'friendships/result' %>
+<% end %>
+<br>
+<br>
+<div>
+    <% if current_user.friends.exists? %>
+        <div>
+            <%= render 'friendships/friendlist' %>
+        </div>
+    <% else %>
+        <p>
+            You don't have friends to show.
+        </p>
+    <% end %>
+</div>

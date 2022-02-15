@@ -18,11 +18,14 @@
       <li class="nav-item <%= 'active' if request.path == myportfolio_path %> ">
         <%= link_to "My portfolio", myportfolio_path, class:"nav-link" %>
       </li>
+      <li class="nav-item <%= 'active' if request.path == friendships_path %> ">
+        <%= link_to "Friend list.", friendships_path, class:"nav-link" %>
+      </li>
       <li class="nav-item">
         <%= link_to "Sign out", signout_path, class:"nav-link" %>
       </li>
       <li class="nav-item">
-        <span class="nav-link">ID: <b><%= current_user.id %></b>; @<b><%= current_user.username %></b>.</span>
+        <span class="nav-link">@<b><%= current_user.username %></b>.</span>
       </li>
       <% end %>
     </ul>

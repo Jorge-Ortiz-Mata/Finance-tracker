@@ -24,6 +24,26 @@ class UsersController < ApplicationController
     @user = current_user
   end
 
+
+
+
+  def search_friend
+
+    if params[:friend].present?
+      @people = User.look_friend_up(params[:friend])
+      if @people.nil?
+        redirect_to friendships_path, alert: "There's nobody with that username."
+      else
+        render 'friendships/index'
+      end
+    else
+      redirect_to friendships_path, alert: "You must enter a value."
+    end
+  end
+
+
+
+
   private
     def user_params
       params.require(:user).permit(:username, :password, :password_confirmation)

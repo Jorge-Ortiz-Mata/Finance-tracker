@@ -1,0 +1,27 @@
+<h2>Result</h2>
+<div class="col-5">
+    <table class="table table-bordered">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">User ID.</th>
+                <th scope="col">Friend</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @people.each do |person| %>
+            <tr>
+                <% if !(current_user.id == person.id) %>
+                    <td><%= person.id %></td>
+                    <td><%= person.username %></td>
+                    <% if !(Friendship.check_friendship(current_user, person)) %>
+                        <td><%= link_to "Add friend",  user_friends_path(user: current_user, friend: person.id), method: :post, class: 'btn btn-success' %></td>
+                    <% else %>
+                        <td><span class="badge badge-secondary">Friend already added.</span></td>
+                    <% end %>
+                <% end %>
+            </tr>
+            <% end %>
+        </tbody>
+    </table>
+</div>
