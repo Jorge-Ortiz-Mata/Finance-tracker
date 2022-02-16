@@ -13,3 +13,14 @@ Also, you can search, add and remove friends in this app.
 * HTML 5
 * Bootstrap 4.0
 * Databases.
+* Heroku link: https://finance-tracker-yorch.herokuapp.com
+
+Have a wonderful day! :smiley:
+Greetings :love_you_gesture:
+
+Author:
+
+* Jorge Ortiz Mata.
+* San Luis Potosí S.L.P. México
+* ortiz.mata.jorge@gmail.com
+* +52 (444) 576 3034.
